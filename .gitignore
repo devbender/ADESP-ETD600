@@ -1,3 +1,7 @@
+# Directories
+.pio/
+.vscode/
+
 # Prerequisites
 *.d
 
