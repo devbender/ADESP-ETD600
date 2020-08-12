@@ -5,9 +5,8 @@
 #include <ADESP_Airport.h>
 #include <ADESP_UI_Elements.h>
 
-#define AVOID_SPLASH_SCREEN
-#define AVOID_WARNING_SCREEN
-//#define DEBUG_TOUCH_INPUT
+//#define AVOID_SPLASH_SCREEN
+//#define AVOID_WARNING_SCREEN
 
 enum buttonList_t {
 	ZOOM_IN,

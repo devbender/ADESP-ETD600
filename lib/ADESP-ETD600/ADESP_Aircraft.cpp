@@ -84,20 +84,16 @@ void Aircraft::draw() {
 	// If location outside of drawing area >> return
 	if(posDistance >= TFT_DRAWABLE)
 		return;
+	
+	// Draw aircraft by type
+	if(type == ADSB) 		tft.drawRhomb(pos.x, pos.y, AIRCRAFT_SIZE, WHITE);
+	else if(type == MLAT) 	tft.drawCircle(pos.x, pos.y, AIRCRAFT_SIZE-1, WHITE);
+	else if(type == TISB) 	tft.fillRect(pos.x-AIRCRAFT_SIZE/2, pos.y-AIRCRAFT_SIZE/2, AIRCRAFT_SIZE, AIRCRAFT_SIZE, GREY);
+	else ; // pass		
 
 	// If vector outside of drawing area >> return
 	if(vectDistance >= TFT_DRAWABLE)
 		return;
-	
-	// Draw aircraft by type
-	if(type == ADSB) 
-		tft.drawRhomb(pos.x, pos.y, AIRCRAFT_SIZE, WHITE);
-	else if(type == MLAT) 
-		tft.drawCircle(pos.x, pos.y, AIRCRAFT_SIZE-1, WHITE);
-	else if(type == TISB) 
-		tft.fillRect(pos.x-AIRCRAFT_SIZE/2, pos.y-AIRCRAFT_SIZE/2, AIRCRAFT_SIZE, AIRCRAFT_SIZE, GREY);
-	else;
-		
 	
 	// Draw aircraft Vector if set
 	if(vectorSet) tft.drawLine(pos.x, pos.y, vec.x, vec.y, GREEN);
@@ -150,12 +146,12 @@ void Aircraft::erase() {
 	if(locationSet && posDistance >= TFT_DRAWABLE)
 		return;
 
+	// Erase aircraft
+	tft.fillCircle(pos.x, pos.y, AIRCRAFT_SIZE, BLACK);	
+
 	// If vector set and outside drawing area >> return
 	if(vectorSet && vectDistance >= TFT_DRAWABLE)
 		return;
-
-	// Erase aircraft
-	tft.fillCircle(pos.x, pos.y, AIRCRAFT_SIZE, BLACK);	
 
 	// Erase vector	
 	if(vectorSet) tft.drawLine(pos.x, pos.y, vec.x, vec.y, BLACK);
