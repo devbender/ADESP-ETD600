@@ -8,6 +8,6 @@
 
 ## Credits
 
-Copyright (C) 2019 by Juan Benitez <juan.a.benitez@gmail.com>
+Copyright (C) 2020 by Juan Benitez   <juan.a.benitez@gmail.com>
 
 Distributed under GPLv3
